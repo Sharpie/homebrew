@@ -27,8 +27,9 @@ class Wxmac < Formula
       "WX_CONFIG=#{bin}/wx-config",
       # At this time Wxmac is installed Unicode only
       "UNICODE=1",
-      # And thus we have no need for multiversion support
-      "INSTALL_MULTIVERSION=0",
+      # Always enable multiversion support as some Python programs crash if
+      # they cannot import the wxversion module.
+      "INSTALL_MULTIVERSION=1",
       # OpenGL and stuff
       "BUILD_GLCANVAS=1",
       "BUILD_GIZMOS=1",
