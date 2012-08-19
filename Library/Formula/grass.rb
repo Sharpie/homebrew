@@ -24,6 +24,10 @@ class Grass < Formula
 
   head 'https://svn.osgeo.org/grass/grass/trunk'
 
+  option 'with-postgres', 'Specify PostgreSQL as a dependency'
+  option 'with-mysql', 'Specify MySQL as a dependency'
+  option 'without-gui', 'Build without WxPython interface. Command line tools still available.'
+
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "readline"
@@ -44,14 +48,6 @@ class Grass < Formula
     cause <<-EOS.undent
       Multiple build failures while compiling GRASS tools.
       EOS
-  end
-
-  def options
-    [
-      ['--with-postgres', 'Specify PostgreSQL as a dependency'],
-      ['--with-mysql', 'Specify MySQL as a dependency'],
-      ['--without-gui', 'Build without WxPython interface. Command line tools still available.']
-    ]
   end
 
   def install
